@@ -1,8 +1,6 @@
 from flask import Flask, request
 import requests
 
-OPEN_AI_KEY = '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'
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -11,7 +9,7 @@ def hello_world():
 
 @app.route('/chart')
 def chart():
-    headers = {'Authorization': 'Bearer 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'}
+    headers = {'Authorization': 'Bearer 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'}
     data = {"model": "gpt-3.5-turbo","messages": [{"role": "user", "content": request.args.get('input')}]}
     res = requests.post("https://api.openai.com/v1/chat/completions", json=data, headers=headers)
     print(res.json())
